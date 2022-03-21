@@ -1,0 +1,13 @@
+.content {
+	width: 100%;
+	overflow-y: scroll;
+	height: 100vh;
+}
+.mt-8 {
+	margin-top: 80px;
+}
+.spinner {
+	position: absolute;
+    top: 48vh;
+    left: 48vw;
+}
