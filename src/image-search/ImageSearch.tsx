@@ -8,6 +8,7 @@ import {
 	RESET_PAGE
 } from '../actions';
 
+// Source: https://reactjs.org/docs/hooks-faq.html
 function usePrevious(value) {
 	const ref = useRef();
 	useEffect(() => {
@@ -30,21 +31,19 @@ function ImageSearch(props: any) {
 
 				const dispatchEvent = { payload: data.photos.photo };
 				dispatchEvent['type'] = prevSearch !== search ? GET_DATA_SUCCESS : ADD_NEW_IMAGES;
-        // console.log(dispatchEvent)
         dispatch(dispatchEvent);
-
 			} catch (err) {
 				dispatch({ type: GET_DATA_FAILURE });
 			}
     }
   
 		if (!!search) {
-			// console.log(`prevSearch:${prevSearch}, search: ${search}, page: ${state.page}`)
+      // If user entered new search, reset data and page number
 			if (prevSearch !== search) {
 				dispatch({ type: RESET_PAGE });
         dispatch({ type: RESET_DATA });
-			}
-			fetchData();
+      }
+      fetchData();
 		} else {
 			dispatch({ type: RESET_DATA });
 		}

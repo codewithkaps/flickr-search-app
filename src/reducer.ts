@@ -18,14 +18,12 @@ export const reducer = (state: any, action: any)  => {
 		case GET_DATA_FAILURE:
 			return { ...state, showLoader: false, showError: true};
 		case RESET_DATA:
-			return { ...state, showLoader: false, showError: false, data: null };
+			return { ...state, showLoader: false, showError: false, data: [] };
 		case INCREMENT_PAGE:
 			return { ...state, page: (state.page + 1) }
 		case RESET_PAGE:
 			return { ...state, page: 1 }
 		case ADD_NEW_IMAGES:
-			// console.log('current images', state.data)
-			// console.log('new images', payload)
 			const allImages = !!Array.isArray(state.data) ? state.data.concat(payload) : payload;
 			return { ...state, showLoader: false, showError: false, data: allImages }
 		default:

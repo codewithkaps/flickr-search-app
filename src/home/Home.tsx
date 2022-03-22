@@ -11,7 +11,6 @@ function Home(props: any) {
 		// Source: https://medium.com/fredwong-it/react-detect-scroll-to-bottom-event-7c18350c4ef6
     const reachedBottomOfPage = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
 		if (reachedBottomOfPage) {
-      console.log('Page bottom scroll event ', e.target.scrollHeight, e.target.scrollTop, e.target.clientHeight)
 			dispatch({ type: INCREMENT_PAGE })
 		}
 	}
