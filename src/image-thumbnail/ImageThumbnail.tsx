@@ -1,9 +1,11 @@
+import { useContext } from 'react';
+import { ImagesContext } from '../ImagesContext';
 import Image from 'react-bootstrap/Image';
-// import Container from 'react-bootstrap/Container';
 import { useState } from 'react';
 import ImageDetailsModal from '../image-details-modal/ImageDetailsModal';
 
-function ImageThumbnail(props: any) {
+function ImageThumbnail() {
+  const { state } = useContext(ImagesContext);
   const [modalImage, setModalImage] = useState(null);
   const [modalShow, setModalShow] = useState(false);
 
@@ -31,7 +33,7 @@ function ImageThumbnail(props: any) {
   }
   return (
     <>
-      {displayImages(props.state)}
+      {displayImages(state)}
       <ImageDetailsModal show={modalShow} onHide={() => setModalShow(false)} image={modalImage} />
     </>
   )

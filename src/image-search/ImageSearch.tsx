@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
 import {
 	GET_DATA_INIT,
 	GET_DATA_SUCCESS,
@@ -7,6 +7,7 @@ import {
 	ADD_NEW_IMAGES,
 	RESET_PAGE
 } from '../actions';
+import { ImagesContext } from '../ImagesContext';
 
 // Source: https://reactjs.org/docs/hooks-faq.html
 function usePrevious(value) {
@@ -17,8 +18,8 @@ function usePrevious(value) {
 	return ref.current;
 }
 
-function ImageSearch(props: any) {
-  const { state, dispatch } = props;
+function ImageSearch() {
+  const { state, dispatch } = useContext(ImagesContext);
   const [search, setSearch] = useState('');
   const prevSearch = usePrevious(search);
 
